@@ -209,6 +209,37 @@
 
     /* Projects Grid */
     .projects-section { padding: 5rem 0; }
+    .project-filters {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+    }
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      padding: 0.55rem 1.25rem;
+      border-radius: 9999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .filter-btn:hover {
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--primary);
+      border-color: rgba(56, 189, 248, 0.4);
+    }
+    .filter-btn.active {
+      background: var(--primary);
+      color: #090d16;
+      border-color: var(--primary);
+      font-weight: 700;
+      box-shadow: 0 0 15px var(--primary-glow);
+    }
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -420,10 +451,18 @@
       <h2 class="section-title">Proyectos de Nivel Profesional</h2>
       <p class="section-desc">Arquitecturas completas con pruebas de integración, contenedores Docker y código listo para producción.</p>
 
+      <div class="project-filters">
+        <button class="filter-btn active" data-filter="all">Todos (11)</button>
+        <button class="filter-btn" data-filter="fintech">FinTech & APIs</button>
+        <button class="filter-btn" data-filter="security">Ciberseguridad & AppSec</button>
+        <button class="filter-btn" data-filter="realtime">Real-Time & AI</button>
+        <button class="filter-btn" data-filter="devops">DevOps & Cloud</button>
+      </div>
+
       <div class="projects-grid">
 
         <!-- Project 1 -->
-        <div class="project-card">
+        <div class="project-card" data-category="fintech backend devops">
           <div>
             <div class="project-header">
               <div class="project-icon">💳</div>
@@ -446,7 +485,7 @@
         </div>
 
         <!-- Project 2 -->
-        <div class="project-card">
+        <div class="project-card" data-category="backend security">
           <div>
             <div class="project-header">
               <div class="project-icon">🏢</div>
@@ -469,7 +508,7 @@
         </div>
 
         <!-- Project 3 -->
-        <div class="project-card">
+        <div class="project-card" data-category="backend performance">
           <div>
             <div class="project-header">
               <div class="project-icon">⚡</div>
@@ -492,7 +531,7 @@
         </div>
 
         <!-- Project 4 -->
-        <div class="project-card">
+        <div class="project-card" data-category="realtime backend">
           <div>
             <div class="project-header">
               <div class="project-icon">📊</div>
@@ -515,7 +554,7 @@
         </div>
 
         <!-- Project 5 -->
-        <div class="project-card">
+        <div class="project-card" data-category="devops security">
           <div>
             <div class="project-header">
               <div class="project-icon">🔍</div>
@@ -538,10 +577,125 @@
         </div>
 
         <!-- Project 6 -->
-        <div class="project-card">
+        <div class="project-card" data-category="realtime backend">
+          <div>
+            <div class="project-header">
+              <div class="project-icon">📜</div>
+              <span class="tag">AI & LegalTech</span>
+            </div>
+            <h3 class="project-title">AI Contract Risk Analyzer</h3>
+            <p class="project-desc">
+              Motor de análisis de contratos y escáner de riesgos legales con procesamiento NLP. Detecta cláusulas abusivas, indemnizaciones desbalanceadas, trampas de renovación y calcula puntajes de riesgo en tiempo real.
+            </p>
+            <div class="tags">
+              <span class="tag">Python 3.13</span>
+              <span class="tag">NLP Engine</span>
+              <span class="tag">Legal Risk Scoring</span>
+              <span class="tag">Fullstack UI</span>
+            </div>
+          </div>
+          <a href="https://github.com/samilcastillo-sketch/ai-contract-analyzer" target="_blank" class="project-link">
+            Explorar en GitHub &rarr;
+          </a>
+        </div>
+
+        <!-- Project 7 -->
+        <div class="project-card" data-category="security">
+          <div>
+            <div class="project-header">
+              <div class="project-icon">🔐</div>
+              <span class="tag">Cryptography / E2EE</span>
+            </div>
+            <h3 class="project-title">SecureVault E2EE</h3>
+            <p class="project-desc">
+              Plataforma de transferencia de archivos zero-knowledge con cifrado cliente AES-GCM-256. Claves generadas en el navegador en fragmentos de URL, enlaces de autodestrucción (burn-on-read) y expiración TTL.
+            </p>
+            <div class="tags">
+              <span class="tag">Web Crypto API</span>
+              <span class="tag">AES-GCM-256</span>
+              <span class="tag">Zero-Knowledge</span>
+              <span class="tag">Node.js</span>
+            </div>
+          </div>
+          <a href="https://github.com/samilcastillo-sketch/secure-vault-e2ee" target="_blank" class="project-link">
+            Explorar en GitHub &rarr;
+          </a>
+        </div>
+
+        <!-- Project 8 -->
+        <div class="project-card" data-category="realtime">
+          <div>
+            <div class="project-header">
+              <div class="project-icon">📝</div>
+              <span class="tag">Real-Time Collaboration</span>
+            </div>
+            <h3 class="project-title">SyncPad Collaborative Editor</h3>
+            <p class="project-desc">
+              Editor colaborativo Markdown y código con vista previa dividida en vivo, sincronización multiusuario con debounce reactivo y seguimiento en tiempo real de colaboradores conectados.
+            </p>
+            <div class="tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">Live Sync</span>
+              <span class="tag">Markdown Parser</span>
+              <span class="tag">Presence Counter</span>
+            </div>
+          </div>
+          <a href="https://github.com/samilcastillo-sketch/syncpad-realtime-editor" target="_blank" class="project-link">
+            Explorar en GitHub &rarr;
+          </a>
+        </div>
+
+        <!-- Project 9 -->
+        <div class="project-card" data-category="fintech backend">
+          <div>
+            <div class="project-header">
+              <div class="project-icon">📈</div>
+              <span class="tag">FinTech / Analytics</span>
+            </div>
+            <h3 class="project-title">FinTech Portfolio Analytics</h3>
+            <p class="project-desc">
+              Servicio cuantitativo de modelado de carteras y análisis de riesgo. Calcula Net Asset Value, P&L no realizado, volatilidad anualizada y Sharpe Ratio con dashboard interactivo y endpoints RESTful.
+            </p>
+            <div class="tags">
+              <span class="tag">Python 3.13</span>
+              <span class="tag">Quantitative Finance</span>
+              <span class="tag">Sharpe Ratio</span>
+              <span class="tag">REST API</span>
+            </div>
+          </div>
+          <a href="https://github.com/samilcastillo-sketch/fintech-portfolio-tracker" target="_blank" class="project-link">
+            Explorar en GitHub &rarr;
+          </a>
+        </div>
+
+        <!-- Project 10 -->
+        <div class="project-card" data-category="security devops">
           <div>
             <div class="project-header">
               <div class="project-icon">🛡️</div>
+              <span class="tag">AppSec / Web Security</span>
+            </div>
+            <h3 class="project-title">CyberScan Security Auditor</h3>
+            <p class="project-desc">
+              Motor de auditoría de seguridad web y verificación de cabeceras HTTP críticas (HSTS, CSP, X-Frame-Options, etc.). Califica el nivel de postura (A+ a F) con guías de remediación contra ataques XSS y Clickjacking.
+            </p>
+            <div class="tags">
+              <span class="tag">Python 3.13</span>
+              <span class="tag">Security Headers</span>
+              <span class="tag">AppSec Grading</span>
+              <span class="tag">Docker</span>
+            </div>
+          </div>
+          <a href="https://github.com/samilcastillo-sketch/cyberscan-security-auditor" target="_blank" class="project-link">
+            Explorar en GitHub &rarr;
+          </a>
+        </div>
+
+        <!-- Project 11 -->
+        <div class="project-card" data-category="security realtime">
+          <div>
+            <div class="project-header">
+              <div class="project-icon">🚨</div>
               <span class="tag">Security Operations</span>
             </div>
             <h3 class="project-title">SecOps Center</h3>
@@ -640,5 +794,22 @@
     </div>
   </footer>
 
+  <script>
+    document.querySelectorAll('.filter-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        const filter = button.getAttribute('data-filter');
+        document.querySelectorAll('.project-card').forEach(card => {
+          const categories = (card.getAttribute('data-category') || '').split(' ');
+          if (filter === 'all' || categories.includes(filter)) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
